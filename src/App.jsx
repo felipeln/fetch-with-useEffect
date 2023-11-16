@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react"
-
+import './styles.css'
 
 function App() {
 
@@ -28,17 +28,24 @@ function App() {
 
   return (
     <>
-      <h1>Buscando dados</h1>
+    <div className="container">
+      <h1>Todos List</h1>
 
-      <ol>
+      <ol className="list-wrapper">
         {todos.map((item) => {
           return(
             
-            <li key={item.id}> {item.title} | <span>{item.completed ? 'Completo' : 'Incompleto'}</span></li>
+            <li className="list-item" key={item.id}> span.text {item.title} 
+            {item.completed ? (
+               <span className="status completed"> Status: Completed</span>
+            ) : (
+              <span className="status uncompleted"> Status: uncompleted</span>
+            )}
+           </li>
           )
         })}
       </ol>
-
+    </div>
     </>
   )
 }
